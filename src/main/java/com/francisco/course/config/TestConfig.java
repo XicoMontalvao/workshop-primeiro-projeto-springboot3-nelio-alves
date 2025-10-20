@@ -89,7 +89,7 @@ public class TestConfig implements CommandLineRunner {
         List<Product> productList = new ArrayList<>();
         for (int i = 0; i < 200; i++) {
             String name = faker.commerce().productName();
-            String description = faker.lorem().sentence(20)         ;//"Descrição para " + name; // Ou use faker.lorem().sentence()
+            String description = faker.lorem().sentence(20);
             double price = Double.parseDouble(faker.commerce().price(50.0, 5000.0).replace(",", "."));
             String imgUrl = faker.internet().image();
 
