@@ -199,6 +199,8 @@ public class TestConfig implements CommandLineRunner {
         Product p50 = new Product(null, "Atomic Habits", "By James Clear.", 52.00, "img/book_habits.png");
 
 
+
+
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6));
 
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, p37, p38, p39, p40, p41, p42, p43, p44, p45, p46, p47, p48, p49, p50));
@@ -206,6 +208,75 @@ public class TestConfig implements CommandLineRunner {
         userRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13, u14, u15, u16, u17, u18, u19, u20, u21, u22, u23, u24, u25, u26, u27, u28, u29, u30, u31, u32, u33, u34, u35, u36, u37, u38, u39, u40, u41, u42, u43, u44, u45, u46, u47, u48, u49));
 
         orderRepository.saveAll(Arrays.asList(o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16, o17, o18, o19, o20, o21, o22, o23, o24, o25, o26, o27, o28, o29, o30, o31, o32, o33, o34, o35, o36, o37, o38, o39, o40, o41, o42, o43, o44, o45, o46, o47, o48, o49, o50));
+
+
+        p1.getCategories().add(cat1);
+        p3.getCategories().add(cat1);
+        p7.getCategories().add(cat1);
+        p13.getCategories().add(cat1);
+        p15.getCategories().add(cat1);
+        p18.getCategories().add(cat1);
+        p19.getCategories().add(cat1);
+        p25.getCategories().add(cat1);
+        p31.getCategories().add(cat1);
+        p37.getCategories().add(cat1);
+        p43.getCategories().add(cat1);
+        p48.getCategories().add(cat1);
+        p49.getCategories().add(cat1);
+
+// Books (cat2)
+        p2.getCategories().add(cat2);
+        p8.getCategories().add(cat2);
+        p14.getCategories().add(cat2);
+        p20.getCategories().add(cat2);
+        p26.getCategories().add(cat2);
+        p32.getCategories().add(cat2);
+        p38.getCategories().add(cat2);
+        p44.getCategories().add(cat2);
+        p50.getCategories().add(cat2);
+
+// Computers (cat3)
+        p3.getCategories().add(cat3);
+        p9.getCategories().add(cat3);
+        p15.getCategories().add(cat3);
+        p21.getCategories().add(cat3);
+        p27.getCategories().add(cat3);
+        p33.getCategories().add(cat3);
+        p39.getCategories().add(cat3);
+        p45.getCategories().add(cat3);
+
+// Home Appliances (cat4)
+        p4.getCategories().add(cat4);
+        p10.getCategories().add(cat4);
+        p16.getCategories().add(cat4);
+        p22.getCategories().add(cat4);
+        p28.getCategories().add(cat4);
+        p34.getCategories().add(cat4);
+        p40.getCategories().add(cat4);
+        p46.getCategories().add(cat4);
+
+// Sports & Outdoors (cat5)
+        p5.getCategories().add(cat5);
+        p11.getCategories().add(cat5);
+        p17.getCategories().add(cat5);
+        p23.getCategories().add(cat5);
+        p29.getCategories().add(cat5);
+        p35.getCategories().add(cat5);
+        p37.getCategories().add(cat5);
+        p41.getCategories().add(cat5);
+        p47.getCategories().add(cat5);
+
+// Toys & Games (cat6)
+        p6.getCategories().add(cat6);
+        p12.getCategories().add(cat6);
+        p18.getCategories().add(cat6);
+        p24.getCategories().add(cat6);
+        p30.getCategories().add(cat6);
+        p36.getCategories().add(cat6);
+        p42.getCategories().add(cat6);
+        p49.getCategories().add(cat6);
+
+        productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, p37, p38, p39, p40, p41, p42, p43, p44, p45, p46, p47, p48, p49, p50));
 
 
 
