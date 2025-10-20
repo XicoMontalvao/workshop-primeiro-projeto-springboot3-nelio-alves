@@ -1,12 +1,15 @@
 package com.francisco.course.config;
 
+import com.francisco.course.entities.Order;
 import com.francisco.course.entities.User;
+import com.francisco.course.repositories.OrderRepository;
 import com.francisco.course.repositories.UserRepositoy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import java.time.Instant;
 import java.util.Arrays;
 
 @Configuration
@@ -15,6 +18,8 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     private UserRepositoy userRepositoy;
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -70,6 +75,60 @@ public class TestConfig implements CommandLineRunner {
         User u48 = new User(null, "Enzo Gabriel Dias", "enzogabriel.dias@gmail.com", "981717171", "eNzO_gD!");
         User u49 = new User(null, "Maria Júlia Costa", "mariajulia.costa@gmail.com", "992727272", "mJ_cOsTa");
 
+
+        Order o1 = new Order(null, Instant.parse("2023-01-15T10:30:45Z"), u1);
+        Order o2 = new Order(null, Instant.parse("2023-02-20T14:22:10Z"), u2);
+        Order o3 = new Order(null, Instant.parse("2023-02-21T08:05:30Z"), u1);
+        Order o4 = new Order(null, Instant.parse("2023-03-10T11:15:00Z"), u3);
+        Order o5 = new Order(null, Instant.parse("2023-04-05T09:30:15Z"), u4);
+        Order o6 = new Order(null, Instant.parse("2023-05-12T18:45:20Z"), u5);
+        Order o7 = new Order(null, Instant.parse("2023-06-18T20:10:55Z"), u6);
+        Order o8 = new Order(null, Instant.parse("2023-07-01T13:00:00Z"), u7);
+        Order o9 = new Order(null, Instant.parse("2023-08-14T07:55:12Z"), u8);
+        Order o10 = new Order(null, Instant.parse("2023-09-30T22:18:40Z"), u9);
+        Order o11 = new Order(null, Instant.parse("2023-10-11T16:05:05Z"), u10);
+        Order o12 = new Order(null, Instant.parse("2023-11-25T12:30:00Z"), u11);
+        Order o13 = new Order(null, Instant.parse("2023-12-05T14:14:14Z"), u12);
+        Order o14 = new Order(null, Instant.parse("2024-01-19T10:00:00Z"), u13);
+        Order o15 = new Order(null, Instant.parse("2024-01-20T11:20:30Z"), u14);
+        Order o16 = new Order(null, Instant.parse("2024-02-02T19:40:50Z"), u15);
+        Order o17 = new Order(null, Instant.parse("2024-02-15T09:12:30Z"), u16);
+        Order o18 = new Order(null, Instant.parse("2024-03-01T17:50:00Z"), u17);
+        Order o19 = new Order(null, Instant.parse("2024-03-10T18:21:15Z"), u18);
+        Order o20 = new Order(null, Instant.parse("2024-04-07T21:00:00Z"), u19);
+        Order o21 = new Order(null, Instant.parse("2024-05-16T13:13:13Z"), u20);
+        Order o22 = new Order(null, Instant.parse("2024-06-20T15:05:10Z"), u21);
+        Order o23 = new Order(null, Instant.parse("2024-07-22T10:30:00Z"), u22);
+        Order o24 = new Order(null, Instant.parse("2024-08-01T08:25:45Z"), u23);
+        Order o25 = new Order(null, Instant.parse("2024-09-10T12:00:00Z"), u24);
+        Order o26 = new Order(null, Instant.parse("2024-10-15T14:55:30Z"), u25);
+        Order o27 = new Order(null, Instant.parse("2024-11-05T19:20:10Z"), u26);
+        Order o28 = new Order(null, Instant.parse("2024-12-01T23:59:59Z"), u27);
+        Order o29 = new Order(null, Instant.parse("2025-01-10T09:00:00Z"), u28);
+        Order o30 = new Order(null, Instant.parse("2025-01-11T10:45:15Z"), u29);
+        Order o31 = new Order(null, Instant.parse("2025-02-14T11:30:20Z"), u30);
+        Order o32 = new Order(null, Instant.parse("2025-02-20T16:10:30Z"), u31);
+        Order o33 = new Order(null, Instant.parse("2025-03-03T18:00:00Z"), u32);
+        Order o34 = new Order(null, Instant.parse("2025-03-15T14:20:40Z"), u33);
+        Order o35 = new Order(null, Instant.parse("2025-04-01T07:15:50Z"), u34);
+        Order o36 = new Order(null, Instant.parse("2025-04-10T10:10:10Z"), u35);
+        Order o37 = new Order(null, Instant.parse("2025-05-05T12:05:00Z"), u36);
+        Order o38 = new Order(null, Instant.parse("2025-05-20T09:30:00Z"), u37);
+        Order o39 = new Order(null, Instant.parse("2025-06-11T08:45:10Z"), u38);
+        Order o40 = new Order(null, Instant.parse("2025-06-12T13:25:20Z"), u39);
+        Order o41 = new Order(null, Instant.parse("2025-07-01T15:00:00Z"), u40);
+        Order o42 = new Order(null, Instant.parse("2025-07-07T17:35:30Z"), u41);
+        Order o43 = new Order(null, Instant.parse("2025-08-10T19:40:40Z"), u42);
+        Order o44 = new Order(null, Instant.parse("2025-08-15T20:50:50Z"), u43);
+        Order o45 = new Order(null, Instant.parse("2025-09-01T22:15:00Z"), u44);
+        Order o46 = new Order(null, Instant.parse("2025-09-05T00:10:20Z"), u45);
+        Order o47 = new Order(null, Instant.parse("2025-09-15T11:00:00Z"), u46);
+        Order o48 = new Order(null, Instant.parse("2025-10-01T16:30:00Z"), u47);
+        Order o49 = new Order(null, Instant.parse("2025-10-10T18:18:18Z"), u48);
+        Order o50 = new Order(null, Instant.parse("2025-10-19T23:59:00Z"), u49);
+
         userRepositoy.saveAll(Arrays.asList(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13, u14, u15, u16, u17, u18, u19, u20, u21, u22, u23, u24, u25, u26, u27, u28, u29, u30, u31, u32, u33, u34, u35, u36, u37, u38, u39, u40, u41, u42, u43, u44, u45, u46, u47, u48, u49));
+
+        orderRepository.saveAll(Arrays.asList(o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16, o17, o18, o19, o20, o21, o22, o23, o24, o25, o26, o27, o28, o29, o30, o31, o32, o33, o34, o35, o36, o37, o38, o39, o40, o41, o42, o43, o44, o45, o46, o47, o48, o49, o50));
     }
 }
