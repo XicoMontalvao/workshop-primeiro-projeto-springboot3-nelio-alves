@@ -2,15 +2,9 @@ package com.francisco.course.config;
 
 // ... (Mantenha todos os seus imports)
 
-import com.francisco.course.entities.Category;
-import com.francisco.course.entities.Order;
-import com.francisco.course.entities.Product;
-import com.francisco.course.entities.User;
+import com.francisco.course.entities.*;
 import com.francisco.course.entities.enums.OrderStatus;
-import com.francisco.course.repositories.CategoryRepository;
-import com.francisco.course.repositories.OrderRepository;
-import com.francisco.course.repositories.ProductRepository;
-import com.francisco.course.repositories.UserRepository;
+import com.francisco.course.repositories.*;
 import com.github.javafaker.Faker; // <-- Importe o Faker
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,10 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import java.time.Instant;
-import java.util.ArrayList; // <-- Use listas dinâmicas
-import java.util.Arrays;
-import java.util.List; // <-- Use listas dinâmicas
-import java.util.Locale; // <-- Para gerar dados em Português!
+import java.util.*;
 import java.util.concurrent.TimeUnit; // <-- Para gerar datas
 
 @Configuration
@@ -31,14 +22,18 @@ public class TestConfig implements CommandLineRunner {
     // Seus repositories continuam aqui...
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private OrderRepository orderRepository;
 
     @Autowired
     private CategoryRepository categoryRepository;
+
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    OrderItemRepository orderItemRepository;
     @Override
     public void run(String... args) throws Exception {
 
@@ -99,7 +94,6 @@ public class TestConfig implements CommandLineRunner {
         productRepository.saveAll(productList);
 
 
-
         for (Product p : productList) {
             // Adiciona este produto a 1 ou 2 categorias aleatórias
             Category randomCat1 = categoryRepository.findAll().get(faker.random().nextInt(6));
@@ -112,5 +106,35 @@ public class TestConfig implements CommandLineRunner {
         }
 
         productRepository.saveAll(productList);
+
+
+        List<OrderItem> orderItemList = new ArrayList<>();
+
+        for (Order order : orderList) {
+
+            int itemsPerOrder = faker.random().nextInt(1, 3);
+
+            Set<Product> productsInThisOrder = new HashSet<>();
+
+            for (int i = 0; i < itemsPerOrder; i++) {
+                Product randomProduct;
+
+                do {
+                    randomProduct = productList.get(faker.random().nextInt(productList.size()));
+                } while (productsInThisOrder.contains(randomProduct));
+
+                productsInThisOrder.add(randomProduct);
+
+                int quantity = faker.random().nextInt(1, 6);
+
+                double price = randomProduct.getPrice();
+
+                OrderItem oi = new OrderItem(order, randomProduct, quantity, price);
+
+                orderItemList.add(oi);
+            }
+        }
+
+        orderItemRepository.saveAll(orderItemList);
     }
 }
