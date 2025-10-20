@@ -2,7 +2,7 @@ package com.francisco.course.services;
 
 
 import com.francisco.course.entities.User;
-import com.francisco.course.repositories.UserRepositoy;
+import com.francisco.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class UserService {
     @Autowired
-    private UserRepositoy repositoy;
+    private UserRepository repositoy;
 
     public List<User> findAll(){
         return repositoy.findAll();

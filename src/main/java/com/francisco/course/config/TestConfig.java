@@ -1,10 +1,12 @@
 package com.francisco.course.config;
 
+import com.francisco.course.entities.Category;
 import com.francisco.course.entities.Order;
 import com.francisco.course.entities.User;
 import com.francisco.course.entities.enums.OrderStatus;
+import com.francisco.course.repositories.CategoryRepository;
 import com.francisco.course.repositories.OrderRepository;
-import com.francisco.course.repositories.UserRepositoy;
+import com.francisco.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -18,9 +20,13 @@ import java.util.Arrays;
 public class TestConfig implements CommandLineRunner {
 
     @Autowired
-    private UserRepositoy userRepositoy;
+    private UserRepository userRepository;
+
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    CategoryRepository categoryRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -128,8 +134,19 @@ public class TestConfig implements CommandLineRunner {
         Order o49 = new Order(null, Instant.parse("2025-10-10T18:18:18Z"), OrderStatus.DELIVERED, u48);
         Order o50 = new Order(null, Instant.parse("2025-10-19T23:59:00Z"), OrderStatus.CANCELED, u49);
 
-        userRepositoy.saveAll(Arrays.asList(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13, u14, u15, u16, u17, u18, u19, u20, u21, u22, u23, u24, u25, u26, u27, u28, u29, u30, u31, u32, u33, u34, u35, u36, u37, u38, u39, u40, u41, u42, u43, u44, u45, u46, u47, u48, u49));
+        Category cat1 = new Category(null, "Electronics");
+        Category cat2 = new Category(null, "Books");
+        Category cat3 = new Category(null, "Computers");
+        Category cat4 = new Category(null, "Home Appliances");
+        Category cat5 = new Category(null, "Sports & Outdoors");
+        Category cat6 = new Category(null, "Toys & Games");
+
+        categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6));
+
+        userRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13, u14, u15, u16, u17, u18, u19, u20, u21, u22, u23, u24, u25, u26, u27, u28, u29, u30, u31, u32, u33, u34, u35, u36, u37, u38, u39, u40, u41, u42, u43, u44, u45, u46, u47, u48, u49));
 
         orderRepository.saveAll(Arrays.asList(o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16, o17, o18, o19, o20, o21, o22, o23, o24, o25, o26, o27, o28, o29, o30, o31, o32, o33, o34, o35, o36, o37, o38, o39, o40, o41, o42, o43, o44, o45, o46, o47, o48, o49, o50));
+
+
     }
 }
