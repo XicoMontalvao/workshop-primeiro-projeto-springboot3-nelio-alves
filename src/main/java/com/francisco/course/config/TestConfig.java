@@ -2,10 +2,12 @@ package com.francisco.course.config;
 
 import com.francisco.course.entities.Category;
 import com.francisco.course.entities.Order;
+import com.francisco.course.entities.Product;
 import com.francisco.course.entities.User;
 import com.francisco.course.entities.enums.OrderStatus;
 import com.francisco.course.repositories.CategoryRepository;
 import com.francisco.course.repositories.OrderRepository;
+import com.francisco.course.repositories.ProductRepository;
 import com.francisco.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -27,6 +29,9 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     CategoryRepository categoryRepository;
+
+    @Autowired
+    ProductRepository productRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -141,11 +146,67 @@ public class TestConfig implements CommandLineRunner {
         Category cat5 = new Category(null, "Sports & Outdoors");
         Category cat6 = new Category(null, "Toys & Games");
 
+
+        Product p1 = new Product(null, "Smart TV 4K 55\"", "Experience stunning 4K visuals.", 2499.90, "img/tv.png");
+        Product p2 = new Product(null, "The Lord of the Rings", "Complete trilogy box set.", 129.99, "img/books_lotr.png");
+        Product p3 = new Product(null, "Gaming Laptop 16GB RAM", "High performance for all your games.", 5800.00, "img/laptop.png");
+        Product p4 = new Product(null, "Coffee Maker", "Brews up to 12 cups.", 149.50, "img/coffee.png");
+        Product p5 = new Product(null, "Running Shoes", "Comfortable and lightweight.", 399.00, "img/shoes.png");
+        Product p6 = new Product(null, "LEGO Star Wars Set", "Build the Millennium Falcon.", 899.99, "img/lego.png");
+        Product p7 = new Product(null, "Smartphone 256GB", "Latest model with advanced camera.", 4200.00, "img/phone.png");
+        Product p8 = new Product(null, "Dune by Frank Herbert", "Sci-fi classic paperback.", 45.90, "img/book_dune.png");
+        Product p9 = new Product(null, "Mechanical Keyboard", "RGB lighting and tactile switches.", 550.00, "img/keyboard.png");
+        Product p10 = new Product(null, "Air Fryer 5L", "Healthy cooking with less oil.", 480.00, "img/airfryer.png");
+        Product p11 = new Product(null, "Yoga Mat", "Non-slip and eco-friendly.", 89.90, "img/yoga.png");
+        Product p12 = new Product(null, "Board Game - Catan", "Strategy game for the family.", 220.00, "img/catan.png");
+        Product p13 = new Product(null, "Bluetooth Headphones", "Noise-cancelling over-ear.", 750.00, "img/headphones.png");
+        Product p14 = new Product(null, "Java Programming Book", "Learn Java from scratch.", 95.00, "img/book_java.png");
+        Product p15 = new Product(null, "MacBook Pro 14\"", "Apple M3 Pro chip.", 12500.00, "img/macbook.png");
+        Product p16 = new Product(null, "Robotic Vacuum Cleaner", "Smart mapping technology.", 1800.00, "img/vacuum.png");
+        Product p17 = new Product(null, "Basketball", "Official NBA size and weight.", 130.00, "img/basketball.png");
+        Product p18 = new Product(null, "RC Drone", "4K camera and 30-min flight time.", 1100.00, "img/drone.png");
+        Product p19 = new Product(null, "Wireless Earbuds", "True wireless with charging case.", 320.00, "img/earbuds.png");
+        Product p20 = new Product(null, "A Brief History of Time", "By Stephen Hawking.", 55.00, "img/book_hawking.png");
+        Product p21 = new Product(null, "Curved Gaming Monitor", "27-inch 144Hz.", 1600.00, "img/monitor.png");
+        Product p22 = new Product(null, "Blender", "1000W motor for smoothies.", 210.00, "img/blender.png");
+        Product p23 = new Product(null, "Dumbbell Set", "Adjustable weights.", 600.00, "img/dumbbell.png");
+        Product p24 = new Product(null, "Action Figure", "Collectible superhero figure.", 180.00, "img/figure.png");
+        Product p25 = new Product(null, "Soundbar", "Dolby Atmos sound system.", 950.00, "img/soundbar.png");
+        Product p26 = new Product(null, "1984 by George Orwell", "Dystopian classic.", 40.00, "img/book_1984.png");
+        Product p27 = new Product(null, "External SSD 1TB", "High-speed data transfer.", 650.00, "img/ssd.png");
+        Product p28 = new Product(null, "Microwave Oven", "20L capacity, digital panel.", 420.00, "img/microwave.png");
+        Product p29 = new Product(null, "Camping Tent", "4-person waterproof tent.", 530.00, "img/tent.png");
+        Product p30 = new Product(null, "Puzzle 1000 Pieces", "Jigsaw puzzle, beautiful landscape.", 75.00, "img/puzzle.png");
+        Product p31 = new Product(null, "Digital Camera", "Mirrorless camera with lens.", 3800.00, "img/camera.png");
+        Product p32 = new Product(null, "The Pragmatic Programmer", "Journey to mastery.", 110.00, "img/book_pragmatic.png");
+        Product p33 = new Product(null, "Wireless Mouse", "Ergonomic design.", 150.00, "img/mouse.png");
+        Product p34 = new Product(null, "Washing Machine", "10kg front load.", 2100.00, "img/washing.png");
+        Product p35 = new Product(null, "Bicycle", "21-speed mountain bike.", 1300.00, "img/bike.png");
+        Product p36 = new Product(null, "Plush Toy", "Soft teddy bear.", 60.00, "img/teddy.png");
+        Product p37 = new Product(null, "Smartwatch", "Fitness tracking and GPS.", 890.00, "img/watch.png");
+        Product p38 = new Product(null, "Clean Code", "By Robert C. Martin.", 140.00, "img/book_cleancode.png");
+        Product p39 = new Product(null, "Graphics Card RTX 4070", "Next-gen graphics.", 4500.00, "img/gpu.png");
+        Product p40 = new Product(null, "Refrigerator", "Frost-free, 400L.", 3100.00, "img/fridge.png");
+        Product p41 = new Product(null, "Treadmill", "Foldable electric treadmill.", 2200.00, "img/treadmill.png");
+        Product p42 = new Product(null, "Doll House", "Wooden doll house with furniture.", 350.00, "img/dollhouse.png");
+        Product p43 = new Product(null, "Projector", "Full HD 1080p projector.", 980.00, "img/projector.png");
+        Product p44 = new Product(null, "Sapiens: A Brief History", "By Yuval Noah Harari.", 65.00, "img/book_sapiens.png");
+        Product p45 = new Product(null, "All-in-One PC", "24-inch, 8GB RAM.", 3400.00, "img/allinone.png");
+        Product p46 = new Product(null, "Electric Kettle", "1.7L stainless steel.", 110.00, "img/kettle.png");
+        Product p47 = new Product(null, "Soccer Ball", "Official league ball.", 90.00, "img/soccer.png");
+        Product p48 = new Product(null, "Electric Scooter", "Foldable and portable.", 1700.00, "img/scooter.png");
+        Product p49 = new Product(null, "Gaming Console", "Latest generation console.", 3999.00, "img/console.png");
+        Product p50 = new Product(null, "Atomic Habits", "By James Clear.", 52.00, "img/book_habits.png");
+
+
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6));
+
+        productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20, p21, p22, p23, p24, p25, p26, p27, p28, p29, p30, p31, p32, p33, p34, p35, p36, p37, p38, p39, p40, p41, p42, p43, p44, p45, p46, p47, p48, p49, p50));
 
         userRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10, u11, u12, u13, u14, u15, u16, u17, u18, u19, u20, u21, u22, u23, u24, u25, u26, u27, u28, u29, u30, u31, u32, u33, u34, u35, u36, u37, u38, u39, u40, u41, u42, u43, u44, u45, u46, u47, u48, u49));
 
         orderRepository.saveAll(Arrays.asList(o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, o16, o17, o18, o19, o20, o21, o22, o23, o24, o25, o26, o27, o28, o29, o30, o31, o32, o33, o34, o35, o36, o37, o38, o39, o40, o41, o42, o43, o44, o45, o46, o47, o48, o49, o50));
+
 
 
     }
