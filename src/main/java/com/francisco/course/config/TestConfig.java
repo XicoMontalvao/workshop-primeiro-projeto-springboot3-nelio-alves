@@ -52,7 +52,6 @@ public class TestConfig implements CommandLineRunner {
         seedPayments(orders);
     }
 
-    // --- MÉTODOS PRIVADOS ---
 
     private List<User> seedUsers() {
         System.out.println("Gerando usuários...");
@@ -67,7 +66,6 @@ public class TestConfig implements CommandLineRunner {
             userList.add(new User(null, name, email, phone, password));
         }
 
-        // Salva e retorna a lista de usuários com IDs
         return userRepository.saveAll(userList);
     }
 
@@ -164,7 +162,7 @@ public class TestConfig implements CommandLineRunner {
         System.out.println("Gerando pagamentos...");
 
         for (Order order : orderList) {
-            // Só cria pagamento se o status NÃO for CANCELED ou WAITING_PAYMENT
+
             if (order.getOrderStatus() == OrderStatus.PAID ||
                     order.getOrderStatus() == OrderStatus.SHIPPED ||
                     order.getOrderStatus() == OrderStatus.DELIVERED) {
@@ -172,12 +170,9 @@ public class TestConfig implements CommandLineRunner {
                 Instant paymentMoment = order.getMoment().plusSeconds(faker.random().nextInt(60, 3600));
                 Payment payment = new Payment(null, paymentMoment, order);
 
-                // Associação OneToOne (o 'cascade' faz a mágica)
                 order.setPayment(payment);
             }
         }
-
-        // Salva os pedidos NOVAMENTE para persistir os pagamentos
         orderRepository.saveAll(orderList);
     }
 }

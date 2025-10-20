@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.francisco.course.entities.enums.OrderStatus;
 import jakarta.persistence.*;
 
+import java.io.DataOutput;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
@@ -36,6 +37,7 @@ public class Order implements Serializable {
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
     private Payment payment;
+
 
     public Payment getPayment() {
         return payment;
@@ -92,6 +94,13 @@ public class Order implements Serializable {
         return items;
     }
 
+    public Double getTotal(){
+        double sum = 0;
+        for (OrderItem x : items){
+            sum+= x.getSubTotal();
+        }
+        return sum;
+    }
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
