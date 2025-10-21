@@ -5,6 +5,7 @@ import com.francisco.course.entities.User;
 import com.francisco.course.repositories.UserRepository;
 import com.francisco.course.services.exceptions.DataBaseException;
 import com.francisco.course.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -40,9 +41,13 @@ public class UserService {
         }
     }
     public User update(Long id, User user){
-        User entity = repositoy.getReferenceById(id);
-        updateData(entity, user);
-        return repositoy.save(entity);
+        try {
+            User entity = repositoy.getReferenceById(id);
+            updateData(entity, user);
+            return repositoy.save(entity);
+        }catch (EntityNotFoundException e){
+            throw new DataBaseException(e.getMessage());
+        }
     }
     private void updateData(User entity, User user){
         entity.setName(user.getName());
